@@ -231,7 +231,7 @@ header nav .active a {
 	font-family: DINWeb-Cond, sans-serif;
 	font-size: 18px;
 	margin-top: 25px;
-	margin-left: 200px;
+	text-align: center;
 }
 
 .uitleg > span {
@@ -247,16 +247,16 @@ header nav .active a {
 	color: #efefef;
 }
 
-.uitleg > span.vrij {
+.uitleg > span.vrij, #overzichtoverig .vrij {
 background: #7BB847;
 color: #BDDBA3;
 }
 
-.uitleg > span.onvrij {
+.uitleg > span.onvrij, #overzichtoverig .onvrij {
 background: #E13434;
 color: #F09999;
 }
-.uitleg > span.meh {
+.uitleg > span.meh, #overzichtoverig .meh {
 background: #EDAB70;
 color: #F6D5B7;
 }
@@ -323,8 +323,7 @@ table#overzicht {
 		border-right: dotted #ccc 1px;
 	}
 	
-	th.partij {
-		background: ;
+	th.partij, #overzichtoverig strong {
 		font-family:DINWeb-Cond, sans-serif;
 		font-weight: bold;
 		vertical-align: middle;
@@ -334,7 +333,7 @@ table#overzicht {
 		font-size: 22px;
 	}
 		
-		#partijen th.highlight {			
+		#overzicht th.highlight {			
 			background: #f0f0f0;	
 		}
 	
@@ -346,8 +345,8 @@ table#overzicht {
 		background: #fff;
 	}
 	
-	td.onderwerp a, tr.eindoordeel td.onderwerp span {
-		display: block;		
+	td.onderwerp a, tr.eindoordeel td.onderwerp span, #overzichtoverig {
+		display: block;
 		color: #222;
 		font-family:DINWeb-Cond, sans-serif;
 		padding: 4px 7px 6px;
@@ -370,7 +369,7 @@ table#overzicht {
 			padding: 9px 7px 1px;		
 		}
 		
-			td.onderwerp a:hover, tr.eindoordeel td.onderwerp span, tr.standpunt:hover td.onderwerp a {			
+			td.onderwerp a:hover, tr.eindoordeel td.onderwerp, tr.standpunt:hover td.onderwerp a, #overzichtoverig:hover {
 				color: #000;
 				background: #f0f0f0;			
 			}
@@ -413,7 +412,7 @@ table#overzicht {
 		background: #D90000;
 		color: #fff;
 	}
-		td.onvrij a:hover, .eindoordeel td.onvrij a:hover{
+		td.onvrij a:hover, .eindoordeel td.onvrij a:hover, #overzichtoverig:hover .onvrij {
 			background: #D90000;
 			color: #fff;
 		}
@@ -427,7 +426,7 @@ table#overzicht {
 		background: #59A618;
 		color: #fff;
 	}
-		td.vrij a:hover, .eindoordeel td.vrij a:hover{
+		td.vrij a:hover, .eindoordeel td.vrij a:hover, #overzichtoverig:hover .vrij{
 			background: #59A618;
 			color: #fff;
 		}
@@ -441,7 +440,7 @@ table#overzicht {
 			background: #E9954C;
 			color: #fff;
 	}
-		td.meh a:hover, .eindoordeel td.meh a:hover{
+		td.meh a:hover, .eindoordeel td.meh a:hover, #overzichtoverig:hover .meh{
 			background: #E9954C;
 			color: #fff;
 		}
@@ -471,8 +470,29 @@ nav.sub {
 	margin: 10px 0 0;
 	letter-spacing: -.03em;
 }
+nav.sub br {
+ clear: both;
+}
 .wepromise-sub, #wepromise a {
  color: #1818a5 !important;
+}
+
+#overzichtoverig {
+ float: right;
+ position: relative;
+ left: 110px;
+ margin: 20px 0;
+}
+
+#overzichtoverig span {
+ display: inline-block;
+ width: 160px;
+}
+#overzichtoverig span.onvrij, #overzichtoverig span.meh, #overzichtoverig span.vrij {
+ width: 24px;
+ height: 24px;
+ text-align: center;
+ font-weight: bold;
 }
 
 .content {
@@ -529,9 +549,9 @@ section aside + dt,
 }
 
 
-dt .vrij { color: #59A618; text-transform: uppercase; }
-dt .onvrij { color: #D90000; text-transform: uppercase; }
-dt .meh { color: #E9954C; text-transform: uppercase; }
+dt .vrij, h2 .vrij { color: #59A618; text-transform: uppercase; }
+dt .onvrij, h2 .onvrij { color: #D90000; text-transform: uppercase; }
+dt .meh, h2 .meh { color: #E9954C; text-transform: uppercase; }
 
 section dd {
 	margin: 0 0 15px 0;
@@ -704,7 +724,6 @@ footer .largetosti a:hover {
 	padding: 20px 130px;
 	background: #fff;
 	width: 696px;
-	height: 819px;
 	overflow-y: auto;
 	top: 0 !important;
 	left: 0 !important;

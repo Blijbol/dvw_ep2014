@@ -34,20 +34,23 @@ $(".standpunt a, .wepromise a, .eindoordeel td:not(':first-child') a").click(fun
 	$('body').scrollTo($('#overlay'), {duration: 200});
 });
 
-$("nav.sub a:not(':last-child')").click(function(e){
-	
+function clickHandler(e){
 	var d = $( '<div class="inner">' );
-	var t = $(e.target).attr('href');
-	
+ var t = e.attr('href');
 	$(t).clone().contents().appendTo(d);	
 	$('#overlay').append(d);
 	$('#overlay').find('a.terug').click(function() {
 		$('#overlay').overlay().close();
 	});	
 	$('#overlay').overlay().load();
+ console.log(t);
+ console.log($(t).length);
 	previousScroll = $('html')[0].scrollTop;
 	$('body').scrollTo($('#overlay'), {duration: 200});
-});
+}
+
+$("nav.sub a:not(':last-child')").click(function(e){clickHandler($(e.target));});
+$("#overzichtoverig").click(function(e){clickHandler($("#overzichtoverig"));});
 
 //table cell behaviors	
 $('#overzicht td[class!=onderwerp]').bind("mouseenter",function() {
@@ -67,7 +70,9 @@ $('#overzicht td[class!=onderwerp]').bind("mouseenter",function() {
 				  $(':nth-child(' + (index + 1) + ')' ,this).removeClass('highlight');
 			})
 });
-	
+
+$('#overlay')[0].style.height = $('.content').height() - 30 + 'px';
+
 //fake click to load page with relevant section open if hash in URL	
 if (document.location.hash != '' && document.location.hash != '# ') {
 	var targ = 'a[href*='+document.location.hash+']';
