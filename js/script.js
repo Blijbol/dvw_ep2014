@@ -30,6 +30,7 @@ $(".standpunt a, .wepromise a, .eindoordeel td:not(':first-child') a").click(fun
 	
 	$('#overlay').append(d);	
 	$('#overlay').overlay().load();
+ $('#overlay').scrollTo(0, {duration: 200});
 	previousScroll = $('html')[0].scrollTop;
 	$('body').scrollTo($('#overlay'), {duration: 200});
 });
@@ -45,6 +46,7 @@ function clickHandler(e){
 	$('#overlay').overlay().load();
  console.log(t);
  console.log($(t).length);
+ $('#overlay').scrollTo(0, {duration: 200});
 	previousScroll = $('html')[0].scrollTop;
 	$('body').scrollTo($('#overlay'), {duration: 200});
 }
